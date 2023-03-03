@@ -1,0 +1,74 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global" >
+    
+<!-- <aura:attribute name="Strength" type="String" default="Strength: 1" /> -->
+
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+
+<aura:attribute name="visible" type="Boolean" default='true' />
+
+    <aura:registerEvent name="sampleComponentEvent" type="c:compEvent"/>
+
+    <ltng:require styles="/resource/budgetModal" />
+
+    <div lwc:dom="manual">
+
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">   
+
+        
+        
+           
+
+            <div class="slds-modal__container"  >
+
+
+
+                <!-- <header class="slds-modal__header slds-modal__header_empty">
+                    <lightning:buttonIcon iconName="utility:close" class="slds-modal__close" onclick="{!c.closeFlowModal}"/>
+                </header> -->
+
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Modal header</h1>
+                </div>
+                
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style='height: 400px; '>
+
+
+                    <!-- <lightning:dynamicIcon type="strength" option="2" alternativeText="{!v.strength}"/> -->
+
+                <aura:if isTrue="{!v.visible}"> 
+                    <div class="spinner slds-align_absolute-center"></div>
+
+                    <div class="text-animation slds-align_absolute-center">
+                        <p>טוען נתונים</p>
+                    </div>
+                </aura:if>       
+
+                <aura:if isTrue="{!!v.visible}"> 
+                    <lightning:recordEditForm aura:id="editForm" recordId="a028d000008n6xuAAA" objectApiName="Budget_For_Category__c" onsuccess="{!c.handleSuccess}" onload="{!c.handleLoad}">
+                        <lightning:messages />
+                        <lightning:outputField fieldName="Category__c" />
+                        <lightning:inputField fieldName="Category_Budget__c" />
+                        <lightning:inputField fieldName="Month__c" />
+                        <lightning:inputField fieldName="Name" />
+                        <lightning:inputField fieldName="Year__c" />
+                        <!-- <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Update" /> -->
+                    </lightning:recordEditForm>
+                </aura:if>       
+
+
+
+
+
+                </div>
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick="{!c.closeFlowModal}">Cancel</button>
+                    <!-- <button class="slds-button slds-button_brand">Save</button> -->
+                    <lightning:button class="slds-m-top_small" variant="brand" type="button" name="update" label="update" onclick="{!c.update}" disabled="{!V.visible}"/>
+                </div>
+            </div>
+        </section> 
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </div> 
+     
+</aura:component>	

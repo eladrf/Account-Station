@@ -1,0 +1,26 @@
+.sddf{
+
+}
+
+.THIS .myUniqueClass svg {
+    width: 3rem;
+    height: 20rem;
+}
+
+.handle-clicked-details-page{
+    background-color:rgb(17, 180, 50);
+    background-color:var(--details-page-style);
+}
+
+
+.background-color{
+    background-color: rgb(31, 66, 93);
+    stroke: black;
+    stroke-width: 4px;
+}
+
+.background-colorr{
+    background-color:rgb(84, 86, 88);
+    stroke: rgb(255, 255, 255);
+    stroke-width: 5px;
+}

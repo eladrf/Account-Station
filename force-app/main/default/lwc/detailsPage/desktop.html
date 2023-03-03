@@ -1,0 +1,370 @@
+<template >
+        <div if:true={showSpinner} >
+            <lightning-spinner
+                alternative-text="Loading..." variant="brand">
+            </lightning-spinner>
+        </div>
+        <div class="slds-modal__header header-container " onclick={menusClose}>
+            <p class="slds-modal__title slds-hyphenate">שנת<br></p>
+            <!---->
+            <div style="zoom:40% ;">
+                <div class="demo-only demo-only--sizing slds-grid slds-wrap" >
+                    <div class="slds-size_1-of-3">
+                    <div class=" slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                        <button  onclick={handleMinusYear} style="background: white;">
+                            <lightning-icon icon-name="utility:back" alternative-text="Close" title="Close" class="handle-minus-year" ></lightning-icon>
+                        </button >
+                    </div>
+                    </div>
+                    <div class="slds-size_1-of-3">
+                    <div class=" slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                        <div class="normal-font inner-header-container">
+                            <div class="increased-font">
+                                <p class="slds-modal__title slds-hyphenate">{year}</p>
+                            </div>
+                        </div>  
+                    </div>
+                    </div>
+                    <div class="slds-size_1-of-3">
+                        <div class=" slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                            <button  onclick={handlePlusYear} style="background: white;">
+                                <lightning-icon icon-name="utility:forward" alternative-text="Close" title="Close" class='handle-plus-year' ></lightning-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="slds-size_3-of-3">
+                        <p class="slds-modal__title slds-hyphenate " style="font-size: 15px;" >חודש<br></p>
+                    </div>
+                    <div class="slds-size_2-of-5" style="zoom:20% ;">
+                        <div class=" slds-box_x-small slds-text-align_right slds-m-around_x-small">
+                            <button  onclick={handleMinusMonth} style="background: white;">
+                                <lightning-icon icon-name="utility:back" alternative-text="Close" title="Close"  class="handle-minus-month"></lightning-icon>
+                            </button >
+                        </div>
+                    </div>
+                    <div class="slds-size_1-of-5" style="zoom:20% ;">
+                        <div class=" slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                            <div class="normal-font inner-header-container">
+                                <div class="increased-font-month">
+                                    <p class="slds-modal__title slds-hyphenate">{month}</p>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="slds-size_2-of-5" style="zoom:20% ;">
+                        <div class=" slds-box_x-small slds-text-align_left slds-m-around_x-small">
+                            <button  onclick={handlePlusMonth} style="background: white;">
+                                <lightning-icon icon-name="utility:forward" alternative-text="Close" title="Close" class="handle-plus-month"></lightning-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---->            
+        </div>
+        <div class="slds-modal__content slds-p-around_medium " style=" overflow: hidden;  ">
+
+
+<!--             
+                <div style={backgroundStyle}>
+                </div> -->
+             
+
+
+            <lightning-tabset active-tab-value={activeTabValue} style="font-size: 13px;  " >
+                <!--First Tab-->
+                <lightning-tab label='מידע מסוכם' value="tab-one" style="width: 100%;  " class="firstTabStyle" onactive={firstTabActivation} >
+                    <!-- Edit Section -->
+                    <div >
+                        <!--BAR-->
+                        <div class="demo-only demo-only--sizing slds-grid slds-wrap">
+                            <div class="slds-size_1-of-3"  onclick={menusClose}><p style="color: rgb(255, 255, 255);">ㅤ</p></div>
+                            <div class="slds-size_1-of-3">
+                                <div class={openMenus} >
+                                    <button aria-haspopup="true" aria-expanded="true" title="Show More" onclick={menusOpenOrClose} style="width: 100%; background-color: rgb(255, 255, 255);margin-left: 12px;">
+                                        <lightning-icon icon-name="utility:collection_alt" alternative-text="Close" title="Close" class={effectIcon}  ></lightning-icon>
+                                        <svg class="slds-button__icon" aria-hidden="true">
+                                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                                        </svg>
+                                        <span class="slds-assistive-text">Show More</span>
+                                    </button>
+                                    <div class="slds-dropdown slds-dropdown_left" style="width: 4px;     opacity: 88%;">
+                                        <ul class="slds-dropdown__list" role="menu" >
+                                            <li class="slds-dropdown__item" role="presentation">
+                                                        <a class="slds-has-success" role="menuitem" tabindex="-1" onclick={clickTotalInMenu}>
+                                                            <span class="slds-truncate" title="Success Item">
+                                                                <span class="slds-m-horizontal_xx-small">
+                                                                    <span class="slds-icon_container slds-icon-utility-success" title="success">
+                                                                        <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+
+                                                                        </svg>
+                                                                        <span class="slds-assistive-text">success</span>
+                                                                    </span>
+                                                                </span>
+                                                                <span>כללי</span>
+                                                            </span>
+                                                        </a>
+                                            </li>
+                                            <li class="slds-dropdown__item" role="presentation">
+                                                <a  role="menuitem" tabindex="-1" onclick={clickFuelMenu}>
+                                                    <span class="slds-truncate" title="Overflow Tab Item">
+                                                        <svg class="slds-icon slds-icon_x-small slds-icon-text-default slds-m-right_x-small" aria-hidden="true">
+                                                            
+                                                        </svg>
+                                                        <span>דלק</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <ul class="slds-dropdown__list" role="menu">
+                                        <li class="slds-dropdown__item" role="presentation">
+                                        <a class="slds-has-warning" href="#" role="menuitem" tabindex="-1">
+                                        <span class="slds-truncate" title="Warning item">
+                                        <span class="slds-m-horizontal_xx-small">
+                                        <span class="slds-icon_container slds-icon-utility-warning slds-current-color" title="warning">
+                                        <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#warning"></use>
+                                        </svg>
+                                        <span class="slds-assistive-text">warning</span>
+                                        </span>
+                                        </span>
+                                        <span>עירייה</span>
+                                        </span>
+                                        </a>
+                                        </li>
+                                        <li class="slds-dropdown__item" role="presentation">
+                                        <a href="#" role="menuitem" tabindex="-1">
+                                        <span class="slds-truncate" title="Overflow Tab Item">
+                                        <svg class="slds-icon slds-icon_x-small slds-icon-text-default slds-m-right_x-small" aria-hidden="true">
+                                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#user"></use>
+                                        </svg>
+                                        <span>קניות בסופר</span>
+                                        </span>
+                                        </a>
+                                        </li>
+                                        </ul>
+                                        <ul class="slds-dropdown__list" role="menu">
+                                        <li class="slds-dropdown__item" role="presentation">
+                                        <a class="slds-has-error" href="#" role="menuitem" tabindex="-1">
+                                        <span class="slds-truncate" title="Error Item">
+                                        <span class="slds-m-horizontal_xx-small">
+                                        <span class="slds-icon_container slds-icon-utility-error" title="error">
+                                        <svg class="slds-icon slds-icon_x-small" aria-hidden="true">
+                                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#error"></use>
+                                        </svg>
+                                        <span class="slds-assistive-text">error</span>
+                                        </span>
+                                        </span>
+                                        <span>קניות פרטיות</span>
+                                        </span>
+                                        </a>
+                                        </li>
+                                        <li class="slds-dropdown__item" role="presentation">
+                                            <a href="#" role="menuitem" tabindex="-1">
+                                            <span class="slds-truncate" title="Overflow Tab Item">
+                                            <svg class="slds-icon slds-icon_x-small slds-icon-text-default slds-m-right_x-small" aria-hidden="true">
+                                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#user"></use>
+                                            </svg>
+                                            <span>בילויים</span>
+                                            </span>
+                                            </a>
+                                        </li>
+                                        <li class="slds-dropdown__item" role="presentation">
+                                            <a href="#" role="menuitem" tabindex="-1">
+                                            <span class="slds-truncate" title="Overflow Tab Item">
+                                            <svg class="slds-icon slds-icon_x-small slds-icon-text-default slds-m-right_x-small" aria-hidden="true">
+                                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#user"></use>
+                                            </svg>
+                                            <span>תקשורת</span>
+                                            </span>
+                                            </a>
+                                        </li>
+                                        </ul>
+                                    </div> 
+                                </div>
+                            </div>
+                            <!--BAR-->
+                            <div class="slds-size_1-of-3" onclick={menusClose}><p style="color: rgb(255, 255, 255);">ㅤ</p></div>
+                        </div>    
+                        <div class={displaySum}  onclick={menusClose} >
+
+                            <!-- <div class="slds-size_1-of-1" onclick={menusClose}><p style="text-align: center; margin-left: 5px; font-size: 25px;">כללי</p></div>
+                            <div class="slds-size_1-of-2">
+                                <div class=" slds-box_x-small slds-text-align_center slds-m-around_x-small" style="color: rgb(13, 96, 186);  font-size: 17px;">
+                                    <h2>הוצאה כללית<br></h2>{currentSum}
+                                </div>
+                            </div>
+                            <div class="slds-size_1-of-2">
+                                <div class=" slds-box_x-small slds-text-align_center slds-m-around_x-small" style="color: rgb(54, 166, 6);  font-size: 17px;">
+                                    <h2>תקצי333ב כללי<br></h2>{totalbudget}
+                                </div>
+                            </div>
+                            <div class="slds-size_2-of-2">
+                                <div class=" slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                                    <div class="beneficiaries-chart">
+                                        <div class="blue-section" ></div>
+                                        <p class="chart-label" > סה"כ {beneficiariesPercents}%</p>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <c-custom-bar category='כללי' percents={beneficiariesPercents}  total-budget={totalbudget}  sum={currentSum}></c-custom-bar>
+
+
+                        </div>
+                        <div class={displayfuelSum} onclick={menusClose} >
+
+
+                            <!-- <div class="slds-size_1-of-1" onclick={menusClose}><p style="text-align: center; margin-left: 5px; font-size: 25px;">דלק</p></div>
+                            <div class="slds-size_1-of-2">
+                                <div class=" slds-box_x-small slds-text-align_center slds-m-around_x-small" style="color: rgb(13, 96, 186);  font-size: 17px;">
+                                    <h2>הוצאת דלק<br></h2>{fuelSum}
+                                </div>
+                            </div>
+                            <div class="slds-size_1-of-2">
+                                <div class=" slds-box_x-small slds-text-align_center slds-m-around_x-small" style="color: rgb(54, 166, 6);  font-size: 17px;">
+                                    <h2>תקציב <br></h2>{totalFuelBudget}
+                                </div>
+                            </div>
+                            <div class="slds-size_2-of-2">
+                                <div>
+                                    <div class="slds-grid slds-grid_align-spread slds-p-bottom_x-small" id="progress-bar-label-id-13">
+                                    <span>הוצאות דלק</span>
+                                    <span aria-hidden="true">
+                                    <strong>נוצלו {beneficiariesPercentsFuel}% מתוך התקציב</strong>
+                                    </span>
+                                    </div>
+                                    <div class="slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" aria-labelledby="progress-bar-label-id-13" aria-label="אדא" role="progressbar">
+                                                <span class="slds-progress-bar__value fuel-sum-class " >
+                                                    <span class="slds-assistive-text ">Progress: {beneficiariesPercentsFuel}%</span>
+                                        
+                                                </span>
+
+                                    </div>
+                                    </div>
+                            </div> -->
+
+                            <c-custom-bar category='דלק' percents={beneficiariesPercentsFuel}  total-budget={totalFuelBudget}  sum={fuelSum}></c-custom-bar>
+
+
+                        </div>
+                        <div style="height: 100px;" onclick={menusClose}>
+
+                        </div>
+                    </div>
+                </lightning-tab>
+                <!---->
+                <template if:false={HideFirstDataTable}>
+                    <div class="slds-align_absolute-center firstTabDivStyle" >
+                        <lightning-tab label='עדכון הוצאה' value="tab-two" style="width: 100%;  " class="firstTabStyle" onactive={secondTabActivation}>
+                            <!-- Edit Section -->
+                            <div class="lrf-div">
+                                <lightning-record-form
+                                    class="lrfTag"
+                                    record-id={recordId}
+                                    object-api-name="Expense__c"
+                                    layout-type="Full"
+                                    mode="edit"
+                                    columns="1"
+                                    onsuccess={handleSuccess}
+                                    onerror={handleError}>
+                                </lightning-record-form>
+                            </div>
+                        </lightning-tab>
+                    </div>
+                </template>
+                <!--Second Tab-->
+                <lightning-tab label='הוצאות' value="tab-three"  style="width: 100%;"  onactive={thirdTabActivation}>
+                    <div>
+                        <div  > 
+                            <!---->
+                            <div class="demo-only demo-only--sizing slds-grid slds-wrap">
+                                <div class="slds-size_1-of-1">
+                                    <!--ComboBox Section-->
+                                    <div style="margin-top:5px ;">
+                                        <lightning-combobox name="Service_Family" label="Service Family" value={value}
+                                            options={familyOptions} onchange={handleChange} disabled={disabled} placeholder="סינון לפי קטגוריה" class="combobox-style">
+                                        </lightning-combobox>
+                                    </div>   
+                                </div>
+                                <div class="slds-size_1-of-2">
+                                    <!-- Search Section -->
+                                    <div >
+                                        <div class="searchIput-style">
+                                            <lightning-input data-id="searchInput" type = "search" onchange={handleSearchKeyChange} placeholder={EnterSearchKey} disabled={searchDisabled}></lightning-input>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-size_1-of-2" >
+                                    <div  class="slds-align_absolute-center searchButton-style ">
+                                        <lightning-button label='חפש' variant="brand" onclick={handleSearchBtn} disabled={searchDisabled} ></lightning-button>
+                                    </div>  
+                                </div>
+                            </div>
+                            <!---->      
+                        </div>
+                        <!-- Table Section #1-->
+                        <!-- allWorkTypes-->
+                        <div class="normal-zoom-percent">
+                            <div class="increased-zoom-percent">
+                                <lightning-datatable 
+                                    hide-checkbox-column='true'
+                                    data-id="upper"
+                                    key-field="Id"         
+                                    columns={mobileAllWorkTypesColumns}
+                                    data={upperDataTable}
+                                    onrowselection={handleSelectedRows}
+                                    sorted-by={sortBy}
+                                    sorted-direction={sortDirection}
+                                    max-row-selection="1"
+                                    onsort={doSorting}>
+                                </lightning-datatable>
+                            </div>
+                        </div>    
+                        <!-- Table Section #2-->
+                        <!--related Maintenance Work Rules-->
+                    </div>
+                    <lightning-layout multiple-rows="true" vertical-align="center" horizontal-align="center" class="current-sum-container">
+                            <lightning-layout-item size="1" small-device-size="1" medium-device-size="1" large-device-size="1" ></lightning-layout-item>
+                            <lightning-layout-item size="2" small-device-size="2" medium-device-size="2" large-device-size="2" >
+                            <div class='currentSum-Style'>
+                                <h1 style="color: blue;">{currentSum}</h1>
+                            </div> 
+                        </lightning-layout-item> 
+                        <lightning-layout-item size="8" small-device-size="8" medium-device-size="8" large-device-size="8" >
+                            <div class='currentSum-Style'>
+                                <h1>סכימת הוצעות הטבלה</h1>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="1" small-device-size="1" medium-device-size="1" large-device-size="1" ></lightning-layout-item>
+
+                    </lightning-layout>    
+                </lightning-tab>  
+            </lightning-tabset>
+        </div>
+        <div class="slds-modal__footer " onclick={menusClose}>
+            <div if:true={isValid} class="errorStyle">
+                <p style="color: red;">There is un valid value in the Edit Maintenance Plan Tab</p>
+            </div>
+            <div if:true={HideFirstDataTable} class="errorStyle">
+                <p style="color: red;"> You have to cancel some rules so you will have only single Service Family before editing plan.</p>
+            </div >
+            <lightning-layout multiple-rows="true" vertical-align="end">
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="12" >
+                    <div class="slds-align_absolute-center">
+                            <lightning-button variant="brand" label='חפש' onclick={handleNextClick} disabled={disableNextBtn}  style="margin-top: 5px;" ></lightning-button>
+                    </div>
+                </lightning-layout-item>  
+            </lightning-layout>
+            <lightning-layout multiple-rows="true" vertical-align="end">      
+                <lightning-layout-item size="12" small-device-size="12" medium-device-size="12" large-device-size="12" >
+                    <div class="slds-align_absolute-center">
+                        <lightning-button variant="brand" label='חלון מודלי' onclick={handleModalClick} disabled={disableNextBtn}  style="margin-top: 5px;" ></lightning-button>
+                        <lightning-button variant="brand" label='Test modal' onclick={TestModal} disabled={disableNextBtn}  style="margin-top: 5px;" ></lightning-button>
+                    </div>    
+                </lightning-layout-item>
+            </lightning-layout>        
+            <div if:true={showModalLWC}>
+                <c-modal-l-w-c onclosewindow={handleSaveFromChild} class="exampleHolder"></c-modal-l-w-c>
+            </div>
+        </div>
+</template>

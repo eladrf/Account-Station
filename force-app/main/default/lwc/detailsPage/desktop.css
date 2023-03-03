@@ -1,0 +1,155 @@
+.normal-zoom-percent {
+    --my--zoom: black;
+    --font--size: 75%;
+}
+
+.increased-zoom-percent{
+    color: var(--my--zoom);
+    font-size: var(--font--size);
+
+}
+
+
+.exampleHolder{
+    position: relative;
+    /*display: inline-block;*/
+}
+
+.normal-font{
+    --my-width: 20px;
+    --my-padding: rgb(0, 0, 0);
+    /*height: 20px;*/
+}
+
+.increased-font{
+    font-size: var(--my-width);
+    color: var(--my-padding);
+}
+
+.increased-font-month{
+    font-size: var(--my-width);
+    color: var(--my-padding);
+}
+
+.header-container{
+    height: 178px;
+}
+
+.inner-header-container {
+    height: 0px;
+
+}
+
+.searchButton-style{
+    margin-top: 35px;
+    margin-bottom: 0px;
+    margin-left: 60px;
+
+
+}
+
+.searchIput-style{
+    margin-bottom: 40px;
+    width: 130%;
+}
+
+.currentSum-Style{
+    font-size: 18px;
+    text-align: right;
+}
+
+.current-sum-container{
+    margin-top: 15px;
+    padding-right: 20px;
+}
+
+.beneficiaries-chart{
+    /*width: 100%;*/
+    height: 41px;
+    margin: 16px 0 22px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
+    border: solid 2px #1e3870;
+    position: relative;    
+    background-color: white;
+}
+
+.blue-section{
+    width: var(--beneficiariesPercents);
+    height: 100%;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 30%);
+    background-color: rgba(10, 157, 194, 0.23);
+    text-align: center;
+}
+
+
+.chart-label{
+    width: 24%;
+    height: 17px;
+    font-size: 10px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    right: 40%;
+    top: 10px;
+    text-align: right;
+}
+
+.display-none{
+    display: none;
+}
+
+.firstTabStyle{
+   
+}
+
+
+
+
+.fuel-sum-class{
+    --percents-fuel:1%;
+    --percents-color:rgb(0, 0, 255);
+
+    background: var(--percents-color);
+    width: var(--percents-fuel);
+}
+
+/*
+.button-container{
+    padding-top:10px;
+}*/
+
+.effect-icon-class-after-click{
+    --lwc-colorTextIconDefault:rgb(230, 230, 245);
+}
+
+.effect-icon-class-before-click{
+    --lwc-colorTextIconDefault:rgb(64, 64, 164);
+}
+
+.handle-plus-year{
+    --plus-year-style:rgb(64, 64, 164);
+    --lwc-colorTextIconDefault:var(--plus-year-style);
+}
+
+.handle-minus-year{
+    --minus-year-style:rgb(64, 64, 164);
+    --lwc-colorTextIconDefault:var(--minus-year-style);
+}
+
+.handle-plus-month{
+    --plus-month-style:rgb(64, 64, 164);
+    --lwc-colorTextIconDefault:var(--plus-month-style);
+}
+
+.handle-minus-month{
+    --minus-month-style:rgb(64, 64, 164);
+    --lwc-colorTextIconDefault:var(--minus-month-style);
+}
+

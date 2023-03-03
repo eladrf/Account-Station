@@ -1,0 +1,7 @@
+.fuel-sum-class{
+    --percents-fuel:1%;
+    --percents-color:rgb(0, 0, 255);
+
+    background: var(--percents-color);
+    width: var(--percents-fuel);
+}

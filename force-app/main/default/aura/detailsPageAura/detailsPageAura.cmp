@@ -1,0 +1,5 @@
+<aura:component implements="lightning:actionOverride,force:lightningQuickActionWithoutHeader,force:hasRecordId,flexipage:availableForAllPageTypes" access="global">
+    <lightning:workspaceAPI aura:id="workspace"/>
+    <aura:attribute name="recordId" type="Id"/>
+    <c:detailsPage recordId="{!v.recordId}" oncloseTab="{!c.handleCloseTab}" onclosewindow="{!c.handleCloseTab}"></c:detailsPage>     
+</aura:component>

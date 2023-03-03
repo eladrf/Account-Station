@@ -1,0 +1,32 @@
+<template>
+    <div class="demo-only demo-only--sizing slds-grid slds-wrap">
+        <div class="slds-size_1-of-1" ><p style="text-align: center; margin-left: 5px; font-size: 25px;">{category}</p></div>
+        <div class="slds-size_1-of-2">
+            <div class=" slds-box_x-small slds-text-align_center slds-m-around_x-small" style="color: rgb(13, 96, 186);  font-size: 17px;">
+                <h2>הוצאת {category}<br></h2>{sum}
+            </div>
+        </div>
+        <div class="slds-size_1-of-2">
+            <div class=" slds-box_x-small slds-text-align_center slds-m-around_x-small" style="color: rgb(54, 166, 6);  font-size: 17px;">
+                <h2>תקציב <br></h2>{totalBudget}
+            </div>
+        </div>
+        <div class="slds-size_2-of-2">
+            <div>
+                <div class="slds-grid slds-grid_align-spread slds-p-bottom_x-small" id="progress-bar-label-id-13">
+                <span>הוצאות {category}</span>
+                <span aria-hidden="true">
+                <strong>נוצלו {newPpercents}% מתוך התקציב</strong>
+                </span>
+                </div>
+                <div class="slds-progress-bar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" aria-labelledby="progress-bar-label-id-13" aria-label="אדא" role="progressbar">
+                            <span class="slds-progress-bar__value fuel-sum-class " >
+                                <span class="slds-assistive-text ">Progress: {newPpercents}%</span>
+                    
+                            </span>
+
+                </div>
+                </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,42 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global">
+    <aura:handler name="sampleComponentEvent" event="c:compEvent" action="{!c.handleComponentEvent}"/>
+
+    <aura:attribute name="backgroundImageURL" type="String" default=""/>
+
+
+    <aura:attribute name="showBudgetModal" type="Boolean" default='false'/>
+
+    <aura:attribute name="showChartPage" type="Boolean" default='false'/>
+    
+
+    <aura:attribute name="showDetailsPage" type="Boolean" default='false'/>
+
+    <aura:attribute name="showHomePage" type="Boolean" default='true'/>
+
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+
+    
+
+    <aura:if isTrue="{!!v.showBudgetModal}">
+        <c:homePage showDetailsPage="{!v.showDetailsPage}" showHomePage="{!v.showHomePage}" ></c:homePage>
+    </aura:if>
+
+    <aura:if isTrue="{!v.showChartPage}">
+        <c:Chart  ></c:Chart>
+    </aura:if>
+
+
+    <aura:if isTrue="{!v.showBudgetModal}">
+        
+
+            <c:budgetModal></c:budgetModal>
+            <div style="{!'position: relative; height:315px; background:' + v.backgroundColor + ' url(' + v.backgroundImageURL +') no-repeat;background-position: center;     background-size: contain;    zoom:110%'}">
+            </div>
+
+
+    </aura:if>
+
+
+</aura:component>	
